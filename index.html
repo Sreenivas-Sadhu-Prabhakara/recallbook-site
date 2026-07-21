@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>RecallBook — patient recall reminders on WhatsApp for clinics</title>
+  <meta name="description" content="A patient recall engine for dentists and small clinics — dental cleanings, medicine refills, vaccinations and checkups tracked and nudged on WhatsApp. See who's due today, this week and overdue; mark done and the next recall auto-schedules. Book a discovery call." />
+  <meta name="keywords" content="patient recall software, dental recall system, clinic recall reminders, WhatsApp appointment reminder, medicine refill reminder, vaccination reminder, patient follow-up app India, dentist recall app" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+  <link rel="canonical" href="https://sreenivas-sadhu-prabhakara.github.io/recallbook-site/" />
+  <meta name="theme-color" content="#059669" />
+  <meta name="author" content="KARYA" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="KARYA" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="RecallBook — patient recall reminders on WhatsApp for clinics" />
+  <meta property="og:description" content="A patient recall engine for dentists and small clinics. Track dental cleanings, medicine refills, vaccinations and checkups; surface who's due today, this week and overdue; nudge on WhatsApp; mark done and the next recall auto-schedules." />
+  <meta property="og:url" content="https://sreenivas-sadhu-prabhakara.github.io/recallbook-site/" />
+  <meta property="og:image" content="https://sreenivas-sadhu-prabhakara.github.io/recallbook-site/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="RecallBook — patient recall engine for clinics: dental cleanings, medicine refills, vaccinations and checkups, nudged on WhatsApp." />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RecallBook — patient recall reminders on WhatsApp for clinics" />
+  <meta name="twitter:description" content="A patient recall engine for dentists and small clinics. See who's due today, this week and overdue; nudge on WhatsApp; mark done and the next recall auto-schedules." />
+  <meta name="twitter:image" content="https://sreenivas-sadhu-prabhakara.github.io/recallbook-site/og.png" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="https://sreenivas-sadhu-prabhakara.github.io/recallbook-site/og.png" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://kaarya-bench.pages.dev/#org",
+        "name": "KARYA",
+        "url": "https://kaarya-bench.pages.dev/",
+        "email": "sreeni.nintendo@gmail.com"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://sreenivas-sadhu-prabhakara.github.io/recallbook-site/#website",
+        "url": "https://sreenivas-sadhu-prabhakara.github.io/recallbook-site/",
+        "name": "RecallBook",
+        "inLanguage": "en-IN",
+        "publisher": { "@id": "https://kaarya-bench.pages.dev/#org" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "RecallBook",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://sreenivas-sadhu-prabhakara.github.io/recallbook-site/",
+        "image": "https://sreenivas-sadhu-prabhakara.github.io/recallbook-site/og.png",
+        "description": "A patient recall engine for dentists and small clinics. Register a patient, set a recall (dental cleaning, medicine refill, vaccination or checkup) with a due date and interval, and RecallBook surfaces who is due today, this week and overdue. Send the recall on WhatsApp; mark it done and the next recall auto-schedules at the interval.",
+        "inLanguage": ["en-IN", "hi-IN"],
+        "areaServed": { "@type": "Country", "name": "India" },
+        "audience": { "@type": "BusinessAudience", "audienceType": "Dentists, doctors and small clinics" },
+        "provider": { "@type": "Organization", "name": "KARYA" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock",
+          "description": "Subscription — pricing shared on a discovery call"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does it actually send WhatsApp messages, or just remind me to?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "RecallBook drafts each recall message — personalised, with the patient's name, the recall type and the due date — and stages it in your outbox. You send it from your own clinic number with a tap, so it always looks like it came from the clinic, not a robot."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What kinds of recalls can I track?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Four types out of the box: dental cleanings, medicine refills, vaccinations and checkups. Each has a sensible default interval — six months for cleanings and checkups, thirty days for refills, a year for vaccinations — which you can override per patient."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens when I mark a recall done?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The recall is closed as done and RecallBook immediately schedules the next one of the same type at the interval — done date plus interval days. That is the whole point: a patient never falls off the cadence because someone forgot to re-book them."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "I'm not very techy. How long does it take to set up?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An evening. You register each patient once, add their recalls, and from then on the board shows you exactly who to call today, this week and who is overdue. No spreadsheets, no diary, no scrolling WhatsApp to reconstruct who is due."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does it cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pricing is worked out on a quick discovery call and billed monthly on subscription. We're keeping public prices off the page while we onboard our first clinics."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "KARYA · On the Bench",
+            "item": "https://kaarya-bench.pages.dev/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "RecallBook",
+            "item": "https://sreenivas-sadhu-prabhakara.github.io/recallbook-site/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top" aria-label="RecallBook home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" role="img" aria-label="RecallBook logo">
+            <rect x="3" y="4" width="26" height="24" rx="3" fill="#059669"/>
+            <rect x="3" y="4" width="7" height="24" rx="3" fill="#047857"/>
+            <path d="M13.5 16.5l2.5 2.5 5-5.5" stroke="#F4F7F5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </span>
+        <span class="brand__name">Recall<span class="brand__book">Book</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#problem">The problem</a>
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#preview">Preview</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <a href="mailto:sreeni.nintendo@gmail.com?subject=Discovery%20call%20—%20RecallBook" class="btn btn--sm">Book a discovery call</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow">Patient recall, on WhatsApp</p>
+          <h1 class="hero__title" id="hero-title">Patients that<br /><span class="accent-word">come back on time.</span></h1>
+          <p class="hero__pain">
+            Cleanings, refills, vaccinations and checkups all repeat on a schedule —
+            yet the patient who should return in six months just quietly disappears.
+            RecallBook keeps every recall on a board, tells you who's due today, and
+            nudges them on WhatsApp.
+          </p>
+          <div class="hero__cta">
+            <a href="#how" class="btn btn--lg">See the recall engine &rarr;</a>
+            <a href="#preview" class="btn-link">Look at the dashboard</a>
+          </div>
+          <p class="hero__note"><span class="dot"></span>For dentists, doctors &amp; small clinics · subscription · pricing on discovery</p>
+        </div>
+
+        <!-- SIGNATURE WIDGET: live recall board -->
+        <aside class="register" aria-label="Live recall board demo">
+          <div class="register__head">
+            <div>
+              <p class="register__label">Recall board</p>
+              <p class="register__month" id="reg-month">Sun, 19 Jul 2026</p>
+            </div>
+            <span class="register__pill">Live</span>
+          </div>
+          <ul class="register__rows" id="reg-rows">
+            <li class="reg-row" data-state="week">
+              <span class="reg-row__name">Rohan Deshpande <em>· 41</em></span>
+              <span class="reg-row__type">🦷 Dental cleaning</span>
+              <span class="reg-row__tag tag--over">21 days overdue</span>
+            </li>
+            <li class="reg-row" data-state="due">
+              <span class="reg-row__name">Aarav Sharma <em>· 34</em></span>
+              <span class="reg-row__type">🦷 Dental cleaning</span>
+              <span class="reg-row__tag tag--due" id="reg-live-tag">Due today</span>
+            </li>
+            <li class="reg-row" data-state="week">
+              <span class="reg-row__name">Priya Menon <em>· 29</em></span>
+              <span class="reg-row__type">🩺 Checkup</span>
+              <span class="reg-row__tag tag--week">In 3 days</span>
+            </li>
+          </ul>
+          <div class="register__foot">
+            <div class="regstat">
+              <span class="regstat__label">Due today</span>
+              <span class="regstat__val regstat__val--in" id="reg-collected">3</span>
+            </div>
+            <div class="regstat">
+              <span class="regstat__label">Overdue</span>
+              <span class="regstat__val regstat__val--out" id="reg-pending">5</span>
+            </div>
+          </div>
+          <p class="register__caption" id="reg-caption">Aarav's cleaning is due today &rarr; send the WhatsApp recall.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEM ============ -->
+    <section class="section" id="problem" aria-label="The problem">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--rule">01 · The problem</p>
+        <div class="two-col">
+          <h2 class="section__title">You fixed the tooth.<br />Then you lost the patient.</h2>
+          <div class="prose">
+            <p>
+              A dental cleaning is due every six months, a BP medicine every thirty days, a
+              booster on a fixed date. But nobody handed your clinic a
+              <strong>recall system</strong> — so the follow-up lives in a register, a diary,
+              and your receptionist's memory, and all three quietly leak patients.
+            </p>
+          </div>
+        </div>
+
+        <div class="pain-grid">
+          <div class="pain">
+            <span class="pain__i" aria-hidden="true">🗓️</span>
+            <h3>The six-month recall just evaporates</h3>
+            <p>You tell the patient "come back in six months." Six months later nobody remembers to call, they don't come back, and you never even notice the gap.</p>
+          </div>
+          <div class="pain">
+            <span class="pain__i" aria-hidden="true">📒</span>
+            <h3>The register can't tell you who's due</h3>
+            <p>To find today's recalls you'd have to read every past entry and do the date maths by hand. So you don't — and overdue patients pile up invisibly.</p>
+          </div>
+          <div class="pain">
+            <span class="pain__i" aria-hidden="true">💊</span>
+            <h3>Refills and boosters slip through</h3>
+            <p>The diabetic patient runs out of Metformin, the child misses a booster window. Different cadences, all tracked in your head, all easy to drop.</p>
+          </div>
+          <div class="pain">
+            <span class="pain__i" aria-hidden="true">📱</span>
+            <h3>Reminders are typed one at a time</h3>
+            <p>When you do remember, someone opens WhatsApp and retypes the same message for each patient — so most days it simply doesn't happen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSIGHT ============ -->
+    <section class="insight" id="insight" aria-label="The insight">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--light">02 · The insight</p>
+        <blockquote class="insight__quote">
+          A recall is the most <span class="hl">predictable</span> visit there is —
+          same patient, known interval, a due date you can calculate — yet it's the
+          one still left <span class="hl">to memory</span>.
+        </blockquote>
+        <p class="insight__punch">
+          RecallBook's whole job is to close that gap: turn every follow-up into a
+          dated recall, <strong>surface who is due, nudge them on WhatsApp, and on
+          "done" auto-schedule the next one</strong> — so a patient stays on cadence
+          whether or not anyone remembered to re-book them.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section" id="how" aria-label="How it works">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--rule">03 · How it works</p>
+        <h2 class="section__title">Register once. The cadence runs itself.</h2>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step__n">1</span>
+            <div>
+              <h3>Register the patient</h3>
+              <p>Name, phone and age — that's it. Farhan Khan, 26, new patient; Kavya Joshi, 3, on the vaccination schedule. One entry per person.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__n">2</span>
+            <div>
+              <h3>Set a recall with a due date</h3>
+              <p>Pick the type — dental cleaning, medicine refill, vaccination or checkup — a due date and an interval. Each type comes with a sensible default cadence.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__n">3</span>
+            <div>
+              <h3>The board surfaces who's due</h3>
+              <p>RecallBook sorts every open recall into due-today, this-week and overdue, most-overdue first, with a breakdown by type. Open it and you know who to call.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__n">4</span>
+            <div>
+              <h3>Send, mark done, next auto-schedules</h3>
+              <p>Send the WhatsApp recall with a tap. When the patient comes in, mark it done — and the next recall of that type is booked automatically at the interval.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section section--tint" id="features" aria-label="What's inside">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--rule">04 · What's inside</p>
+        <h2 class="section__title">The whole recall loop, in one book.</h2>
+
+        <div class="feat-grid">
+          <article class="feat">
+            <h3>Four recall types</h3>
+            <p>Dental cleanings, medicine refills, vaccinations and checkups — each with its own default interval, overridable per patient.</p>
+          </article>
+          <article class="feat">
+            <h3>Due-window board</h3>
+            <p>Every open recall sorted into due-today, this-week and overdue, most-overdue first. The clinic's day, at a glance.</p>
+          </article>
+          <article class="feat">
+            <h3>WhatsApp recall messages</h3>
+            <p>A personalised recall drafted for each patient — name, type, due date — and staged in your outbox to send from your own number.</p>
+          </article>
+          <article class="feat">
+            <h3>Mark done → auto-next</h3>
+            <p>Close a recall and the next of that type is scheduled at the interval automatically. No patient falls off the cadence.</p>
+          </article>
+          <article class="feat">
+            <h3>Per-patient recall history</h3>
+            <p>Open any patient to see every past and upcoming recall, add a new one, send a reminder, or mark the current one done.</p>
+          </article>
+          <article class="feat">
+            <h3>Breakdown by type</h3>
+            <p>See at a glance how much of today's load is cleanings vs refills vs vaccinations vs checkups — so nothing hides behind a total.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCT PREVIEW ============ -->
+    <section class="section" id="preview" aria-label="The dashboard">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--rule">05 · The dashboard</p>
+        <h2 class="section__title">Open it in the morning. See the whole day in ten seconds.</h2>
+
+        <div class="screen" role="img" aria-label="RecallBook dashboard preview showing 5 recalls overdue, 3 due today, 3 due this week, and an attention list of five patients ordered most-overdue first.">
+          <!-- browser chrome -->
+          <div class="screen__bar">
+            <span class="screen__dot"></span><span class="screen__dot"></span><span class="screen__dot"></span>
+            <span class="screen__url">app.recallbook.in / Smile Dental &amp; Clinic</span>
+          </div>
+
+          <div class="screen__body">
+            <div class="screen__topline">
+              <div>
+                <p class="screen__hello">Namaste, Dr. Rao</p>
+                <p class="screen__sub">Smile Dental &amp; Clinic · 14 patients · Sun, 19 Jul 2026</p>
+              </div>
+              <span class="screen__tag">Recall board · live</span>
+            </div>
+
+            <!-- KPI cards: the four due windows -->
+            <div class="kpis">
+              <div class="kpi kpi--over">
+                <p class="kpi__label">Overdue</p>
+                <p class="kpi__val">5</p>
+                <p class="kpi__meta">chase first</p>
+              </div>
+              <div class="kpi kpi--today">
+                <p class="kpi__label">Due today</p>
+                <p class="kpi__val">3</p>
+                <p class="kpi__meta">send now</p>
+              </div>
+              <div class="kpi kpi--week">
+                <p class="kpi__label">This week</p>
+                <p class="kpi__val">3</p>
+                <p class="kpi__meta">next 7 days</p>
+              </div>
+              <div class="kpi kpi--flat">
+                <p class="kpi__label">Upcoming</p>
+                <p class="kpi__val">3</p>
+                <p class="kpi__meta">further out</p>
+              </div>
+            </div>
+
+            <!-- attention table -->
+            <div class="tablecard">
+              <div class="tablecard__head">
+                <p>Needs attention</p>
+                <span class="tablecard__hint">most-overdue first</span>
+              </div>
+              <div class="tablescroll">
+                <table class="dtable">
+                  <thead>
+                    <tr>
+                      <th>Patient</th><th>Recall</th><th class="num">Due</th><th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Rohan Deshpande</td><td>🦷 Dental cleaning</td>
+                      <td class="num">28 Jun</td>
+                      <td><span class="s s--over">21 days overdue</span></td>
+                    </tr>
+                    <tr>
+                      <td>Meera Gupta</td><td>🩺 Checkup</td>
+                      <td class="num">05 Jul</td>
+                      <td><span class="s s--over">14 days overdue</span></td>
+                    </tr>
+                    <tr>
+                      <td>Vikram Patil</td><td>💊 Medicine refill</td>
+                      <td class="num">10 Jul</td>
+                      <td><span class="s s--over">9 days overdue</span></td>
+                    </tr>
+                    <tr>
+                      <td>Aarav Sharma</td><td>🦷 Dental cleaning</td>
+                      <td class="num">19 Jul</td>
+                      <td><span class="s s--due">Due today</span></td>
+                    </tr>
+                    <tr>
+                      <td>Kavya Joshi</td><td>💉 Vaccination</td>
+                      <td class="num">19 Jul</td>
+                      <td><span class="s s--due">Due today</span></td>
+                    </tr>
+                    <tr>
+                      <td>Priya Menon</td><td>🩺 Checkup</td>
+                      <td class="num">22 Jul</td>
+                      <td><span class="s s--week">In 3 days</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section section--tint" id="pricing" aria-label="Pricing">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--rule">06 · Pricing</p>
+        <div class="price-wrap">
+          <div class="price-copy">
+            <h2 class="section__title">Simple subscription. However many patients you see.</h2>
+            <p class="prose">
+              If RecallBook brings back <strong>one lapsed patient a week</strong> who
+              would otherwise have drifted to another clinic, it's already paid for
+              itself many times over — and you've bought back the recalls you were
+              silently losing.
+            </p>
+            <ul class="price-includes">
+              <li>Unlimited patients &amp; recalls</li>
+              <li>Due-today / this-week / overdue board</li>
+              <li>WhatsApp recall messages + mark-done auto-next</li>
+              <li>Per-patient recall history &amp; breakdown by type</li>
+            </ul>
+          </div>
+
+          <div class="price-card">
+            <p class="price-card__eyebrow">RecallBook</p>
+            <p class="price-card__amt">Pricing — on discovery</p>
+            <p class="price-card__line">Subscription basis</p>
+            <p class="prose" style="color:color-mix(in srgb, var(--paper) 82%, transparent);margin:0 0 22px;">
+              We set pricing on a short discovery call and bill it as a simple monthly
+              subscription — sized to your clinic. Early clinics get founder terms.
+            </p>
+            <a href="mailto:sreeni.nintendo@gmail.com?subject=Discovery%20call%20—%20RecallBook" class="btn btn--lg btn--block">Book a discovery call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHO + FAQ ============ -->
+    <section class="section" id="faq" aria-label="Who it's for and frequently asked questions">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--rule">07 · Who it's for &amp; questions</p>
+        <div class="who-grid">
+          <div class="who">
+            <h2 class="section__title section__title--sm">Built for the single clinic, not the hospital chain.</h2>
+            <p class="prose">
+              RecallBook is for the <strong>dentist, doctor or small clinic</strong> —
+              the practice big enough that lapsed recalls are real lost revenue, but
+              small enough that a full practice-management suite is overkill and
+              overpriced. If your recalls currently live in a register and someone's
+              memory, this is for you.
+            </p>
+            <div class="who-tags">
+              <span>Dentists</span>
+              <span>Family doctors</span>
+              <span>Paediatric clinics</span>
+              <span>Small polyclinics</span>
+            </div>
+          </div>
+
+          <div class="faq">
+            <details open>
+              <summary>Does it actually send WhatsApp messages, or just remind me to?</summary>
+              <p>RecallBook drafts each recall message — personalised, with the patient's name, the recall type and the due date — and stages it in your outbox. You send it from your own clinic number with a tap, so it always looks like it came from the clinic, not a robot.</p>
+            </details>
+            <details>
+              <summary>What kinds of recalls can I track?</summary>
+              <p>Four types out of the box: dental cleanings, medicine refills, vaccinations and checkups. Each has a sensible default interval — six months for cleanings and checkups, thirty days for refills, a year for vaccinations — which you can override per patient.</p>
+            </details>
+            <details>
+              <summary>What happens when I mark a recall done?</summary>
+              <p>The recall is closed as done and RecallBook immediately schedules the next one of the same type at the interval — done date plus interval days. That is the whole point: a patient never falls off the cadence because someone forgot to re-book them.</p>
+            </details>
+            <details>
+              <summary>I'm not very techy. How long does it take to set up?</summary>
+              <p>An evening. You register each patient once, add their recalls, and from then on the board shows you exactly who to call today, this week and who is overdue. No spreadsheets, no diary, no scrolling WhatsApp to reconstruct who is due.</p>
+            </details>
+            <details>
+              <summary>What does it cost?</summary>
+              <p>Pricing is worked out on a quick discovery call and billed monthly on subscription. We're keeping public prices off the page while we onboard our first clinics.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="wrap footer__inner">
+      <div class="footer__brand">
+        <span class="brand">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="24" height="24" role="img" aria-label="RecallBook logo">
+              <rect x="3" y="4" width="26" height="24" rx="3" fill="#059669"/>
+              <rect x="3" y="4" width="7" height="24" rx="3" fill="#047857"/>
+              <path d="M13.5 16.5l2.5 2.5 5-5.5" stroke="#F4F7F5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </span>
+          <span class="brand__name">Recall<span class="brand__book">Book</span></span>
+        </span>
+        <p class="footer__tag">Patients that come back on time.</p>
+      </div>
+      <div class="footer__meta">
+        <p class="footer__studio">A <strong>KARYA</strong> studio build</p>
+        <a class="footer__mail" href="mailto:sreeni.nintendo@gmail.com">sreeni.nintendo@gmail.com</a>
+        <p class="footer__fine">© 2026 RecallBook · Made in India</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
